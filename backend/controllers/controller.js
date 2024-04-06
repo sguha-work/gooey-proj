@@ -10,7 +10,7 @@ class Controller {
     }
     Controller.instance = this 
   }
-  async image(request, response) {console.log("inside controller")
+  async image(request, response) {
     return await commonController.handleRequest(request, service.image, response);
   };
 }
