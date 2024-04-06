@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import AuthRouter from './router/auth.router.js';
+import Router from './router/router.js';
 import Logger from './handlers/logger.handler.js';
 const app = express();
 
@@ -15,13 +15,13 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.json());
 let index = 0;
-Object.keys(AuthRouter).forEach((method) => {
-  Object.keys(AuthRouter[method]).forEach((path) => {
+Object.keys(Router).forEach((method) => {
+  Object.keys(Router[method]).forEach((path) => {
     Logger.log(`<${index}>  ${method}  http://localhost:${port}${path}`, 'warn');
     index += 1;
     app[method](path, async (request, response) => {
       try {
-        const result = await AuthRouter[method][path](request, response);
+        const result = await Router[method][path](request, response);
       } catch (error) {
         Logger.log(JSON.stringify(error), 'error');
       }

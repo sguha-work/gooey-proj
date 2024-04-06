@@ -1,4 +1,4 @@
-class AuthService {
+class Service {
     static async login() {
         try{
             return Promise.resolve();
@@ -7,4 +7,4 @@ class AuthService {
         }
     }
 }
-export default AuthService;
+export default Service;
