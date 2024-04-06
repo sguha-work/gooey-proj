@@ -1,8 +1,19 @@
+import StatusCode from "../constants/status-codes.constant.js";
+
 class Service {
-    static async login() {
-        try{
-            return Promise.resolve();
-        } catch(error) {
+    static instance = null;
+    constructor() {
+        if (Service.instance instanceof Service) {
+            return Service.instance
+        }
+        Service.instance = this
+    }
+    async image() {
+        try {
+            return Promise.resolve({
+                status: StatusCode.post.ok
+            });
+        } catch (error) {
             return Promise.reject(error);
         }
     }

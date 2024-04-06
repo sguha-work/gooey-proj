@@ -3,6 +3,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import Router from './router/router.js';
 import Logger from './handlers/logger.handler.js';
+import 'dotenv/config';
 const app = express();
 
 // Define the port
@@ -27,7 +28,6 @@ Object.keys(Router).forEach((method) => {
       }
     })
   });
-
 });
 
 

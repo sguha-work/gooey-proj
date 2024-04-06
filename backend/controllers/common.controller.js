@@ -1,10 +1,12 @@
 import Ajv from "ajv";
 import Logger from "../handlers/logger.handler.js";
 class CommonController {
-  instance = null;
-
+  static instance = null;
   constructor() {
-    this.handleRequest = this.handleRequest.bind(this);
+    if(CommonController.instance instanceof CommonController){
+      return CommonController.instance
+    }
+    CommonController.instance = this 
   }
 
   static get CommonControllerInstance() {
@@ -17,7 +19,7 @@ class CommonController {
   #sendResponse(response, payload) {
     response.setHeader('Access-Control-Allow-Origin', '*');
     response.setHeader('Access-Control-Allow-Credentials', 'true');
-    response.status(payload.code || 200);
+    response.status(payload.status || 200);
     const responsePayload = payload.payload !== undefined ? payload.payload : payload;
     if (responsePayload instanceof Object) {
       response.json(responsePayload);
@@ -79,7 +81,7 @@ class CommonController {
   async handleRequest(request, serviceOperation, response, validationSchema = null) {
     try {
       let serviceResponse;
-      const consolidatedParams = this.#collectRequestParams(request); console.log(consolidatedParams)
+      const consolidatedParams = this.#collectRequestParams(request); console.log("params",consolidatedParams)
       if (validationSchema) {
         const ajv = new Ajv();
         const validate = ajv.compile(validationSchema)
