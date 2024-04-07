@@ -1,0 +1,36 @@
+.before-after-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.before-after-image {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.before-after-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.before-after-divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: #fff;
+  z-index: 1;
+  cursor: ew-resize;
+  pointer-events: none;
+}
+.square-card {
+  width: 70%;
+  height: 10%;
+
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+}

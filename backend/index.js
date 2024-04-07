@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import Router from './router/router.js';
 import Logger from './handlers/logger.handler.js';
 import 'dotenv/config';
+import StatusCode from './constants/status-codes.constant.js';
 const app = express();
 
 // Define the port
@@ -22,7 +23,7 @@ Object.keys(Router).forEach((method) => {
     index += 1;
     app[method](path, async (request, response) => {
       try {
-        const result = await Router[method][path](request, response);
+        const result = await Router[method][path].bind({status: StatusCode[method]},request, response)();
       } catch (error) {
         Logger.log(JSON.stringify(error), 'error');
       }
