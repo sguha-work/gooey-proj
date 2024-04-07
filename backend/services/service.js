@@ -9,9 +9,8 @@ class Service {
         Service.instance = this
     }
     async image(payload) {
-        console.log(payload);
         try {
-            const response = await fetch("https://api.gooey.ai/v2/Img2Img/", {
+            const stream = await fetch("https://api.gooey.ai/v2/Img2Img/", {
                 method: "POST",
                 headers: {
                     "Authorization": "Bearer " + process.env["GOOEY_SECREAT_KEY"],
@@ -19,10 +18,11 @@ class Service {
                 },
                 body: JSON.stringify(payload),
             });
-            console.log('response',response);
+            const result = await stream.json()
+            console.log('response',result);
             return Promise.resolve({
                 status: StatusCode.post.ok,
-                data: response
+                data: result
             });
         } catch (error) {
             return Promise.reject(error);
