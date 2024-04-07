@@ -81,7 +81,7 @@ class CommonController {
   async handleRequest(request, serviceOperation, response, validationSchema = null) {
     try {
       let serviceResponse;
-      const consolidatedParams = this.#collectRequestParams(request); console.log("params",consolidatedParams)
+      const consolidatedParams = this.#collectRequestParams(request);
       if (validationSchema) {
         const ajv = new Ajv();
         const validate = ajv.compile(validationSchema)
