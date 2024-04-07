@@ -3,10 +3,10 @@ import Logger from "../handlers/logger.handler.js";
 class CommonController {
   static instance = null;
   constructor() {
-    if(CommonController.instance instanceof CommonController){
+    if (CommonController.instance instanceof CommonController) {
       return CommonController.instance
     }
-    CommonController.instance = this 
+    CommonController.instance = this
   }
 
   static get CommonControllerInstance() {
@@ -44,6 +44,9 @@ class CommonController {
 
   #collectRequestParams(request) {
     let requestParams = { ...request.params, ...request.query, ...request.body };
+    if (request.file) {
+      requestParams = { ...requestParams, file: request.file };
+    }
     try {
       if (request.body !== undefined) {
         if (
@@ -51,26 +54,27 @@ class CommonController {
           request.headers["content-type"] === "application/json"
         ) {
           requestParams = { ...requestParams, ...request.body };
-        } else if (
-          request.headers &&
-          typeof request.headers["content-type"] != "undefined" &&
-          request.headers["content-type"].indexOf("multipart/form-data") !== -1
-        ) {
-          Object.keys(content["multipart/form-data"].schema.properties).forEach(
-            (property) => {
-              const propertyObject =
-                content["multipart/form-data"].schema.properties[property];
-              if (
-                propertyObject.format !== undefined &&
-                propertyObject.format === "binary"
-              ) {
-                requestParams[property] = this.collectFile(request, property);
-              } else {
-                requestParams[property] = request.body[property];
-              }
-            }
-          );
-        }
+        } //else if (
+        //   request.headers &&
+        //   typeof request.headers["content-type"] != "undefined" &&
+        //   request.headers["content-type"].indexOf("multipart/form-data") !== -1 &&
+        //   content!='undefined'
+        // ) {
+        //   Object.keys(content["multipart/form-data"].schema.properties).forEach(
+        //     (property) => {
+        //       const propertyObject =
+        //         content["multipart/form-data"].schema.properties[property];
+        //       if (
+        //         propertyObject.format !== undefined &&
+        //         propertyObject.format === "binary"
+        //       ) {
+        //         requestParams[property] = this.collectFile(request, property);
+        //       } else {
+        //         requestParams[property] = request.body[property];
+        //       }
+        //     }
+        //   );
+        // }
       }
     } catch (err) {
       Logger.log(err, 'error');
@@ -90,7 +94,7 @@ class CommonController {
           return false;
         }
       }
-      serviceResponse = await serviceOperation(consolidatedParams);
+      serviceResponse = await serviceOperation({ ...consolidatedParams, host: request.headers.host });
       this.#sendResponse(response, serviceResponse);
     } catch (error) {
       this.#sendError(response, error);

@@ -13,5 +13,8 @@ class Controller {
   async image(request, response) {
     return await commonController.handleRequest(request, service.image, response);
   };
+  async imageUpload(request, response) {
+    return await commonController.handleRequest(request, service.imageUpload, response);
+  };
 }
 export default Controller;

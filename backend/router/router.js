@@ -8,6 +8,13 @@ const Router = {
             } catch (e) {
                 console.log("Error in router", e);
             }
+        },
+        '/image/upload': (request, response) => {
+            try {
+                controller.imageUpload(request, response);
+            } catch (e) {
+                console.log("Error in router", e);
+            }
         }
     },
     'get': {

@@ -5,6 +5,7 @@ import Router from './router/router.js';
 import Logger from './handlers/logger.handler.js';
 import 'dotenv/config';
 import StatusCode from './constants/status-codes.constant.js';
+import upload from './middleware/upload.js';
 const app = express();
 
 // Define the port
@@ -21,9 +22,16 @@ Object.keys(Router).forEach((method) => {
   Object.keys(Router[method]).forEach((path) => {
     Logger.log(`<${index}>  ${method}  http://localhost:${port}${path}`, 'warn');
     index += 1;
-    app[method](path, async (request, response) => {
+    (path.indexOf('upload') != -1&&method=='post') && app[method](path, upload.single('file'), async (request, response) => {
       try {
-        const result = await Router[method][path].bind({status: StatusCode[method]},request, response)();
+        const result = await Router[method][path].bind({ status: StatusCode[method] }, request, response)();
+      } catch (error) {
+        Logger.log(JSON.stringify(error), 'error');
+      }
+    });
+    (path.indexOf('upload') == -1) && app[method](path, async (request, response) => {
+      try {
+        const result = await Router[method][path].bind({ status: StatusCode[method] }, request, response)();
       } catch (error) {
         Logger.log(JSON.stringify(error), 'error');
       }
