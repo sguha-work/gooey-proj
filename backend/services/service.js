@@ -1,16 +1,21 @@
 import StatusCode from "../constants/status-codes.constant.js";
 import fetch from 'node-fetch';
-import multer from 'multer';
+import ImageProcessService from "./image-process.service.js";
 class Service {
     static instance = null;
+    #imageProcessService = new ImageProcessService();
     constructor() {
         if (Service.instance instanceof Service) {
             return Service.instance
         }
-        Service.instance = this
+        Service.instance = this;
     }
     async image(payload) {
+        if(payload.manualEnhancement) {console.log(Service.instance);
+            payload = Service.instance.#imageProcessService.processManualEnhancement(payload);
+        }
         try {
+            console.log('payload', payload);
             const stream = await fetch(process.env.GOOEY_API_PATH, {
                 method: "POST",
                 headers: {
