@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <>
       <footer className="text-neutral-300 bg-[#333333]">
-        <div class="footer-top pt-20">
+        <div className="footer-top pt-20">
           <div className="max-w-[1640px] mx-auto px-5">
             <div className="flex flex-wrap justify-between -mx-8">
               {/* Upper Footer Section */}
@@ -80,7 +80,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div class="footer-bottom py-5 border-t border-neutral-700">
+        <div className="footer-bottom py-5 border-t border-neutral-700">
           <div className="max-w-[1640px] mx-auto px-5">
             <div className="flex flex-wrap -mx-5">
               <div className="md:w-6/12 w-full px-5 py-4 md:text-right md:order-last">

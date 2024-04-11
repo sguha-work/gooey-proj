@@ -1,15 +1,18 @@
 //import logo from './logo.svg';
 import "./App.css";
-import { Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./components/Home";
 
 function App() {
   return (
     <div className="font-['jost']">
       <BrowserRouter>
-        <Route exact path="/" component={Home} />
+        <Routes>
+          <Route exact path="/" element={<Home></Home>} />
 
-        <Route />
+          <Route />
+        </Routes>
+
       </BrowserRouter>
     </div>
   );

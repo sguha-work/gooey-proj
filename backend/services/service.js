@@ -42,7 +42,7 @@ class Service {
                 data: {
                     mediaName: file.filename,
                     origMediaName: file.originalname,
-                    mediaSource: `https://${host}/image/get/${file.filename}`
+                    mediaSource: `http://${host}/image/get/${file.filename}`
                 }
             });
         } catch (error) {
