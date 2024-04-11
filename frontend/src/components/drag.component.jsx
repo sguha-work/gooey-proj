@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Frame from "../components/images/Frame.svg";
 
 export default function Drag() {

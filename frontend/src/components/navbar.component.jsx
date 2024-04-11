@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import logo1 from "../components/images/logo1.png";
 import { FaSearch } from "react-icons/fa";
 
