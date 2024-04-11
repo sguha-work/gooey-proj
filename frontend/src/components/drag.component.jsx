@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Frame from "../components/images/Frame.svg";
-
+import { SERVER_URL } from "../constants/common.constant";
 export default function Drag() {
   const [dragging, setDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -41,7 +41,7 @@ export default function Drag() {
     const formData = new FormData();
     formData.append("file", file);
 
-    fetch("http://localhost:4000/image/upload", {
+    fetch(`${SERVER_URL}/image/upload`, {
       method: "POST",
       body: formData,
       // Update progress bar

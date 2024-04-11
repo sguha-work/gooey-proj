@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./home.component.css";
+import "./review.component.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const reviews = [
