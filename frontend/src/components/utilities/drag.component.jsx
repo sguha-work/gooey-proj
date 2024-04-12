@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Frame from "../images/Frame.svg";
 import { SERVER_URL } from "../../constants/common.constant";
+import { Subject_ImageUploaded$ } from "../../subjects/image.behavior-subject";
+import { Subject_ShowModal$ } from "../../subjects/modal.behavior-subject";
 export default function Drag() {
   const [dragging, setDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -40,7 +42,7 @@ export default function Drag() {
   const uploadFile = (file) => {
     const formData = new FormData();
     formData.append("file", file);
-
+    Subject_ShowModal$.next(true);
     fetch(`${SERVER_URL}/image/upload`, {
       method: "POST",
       body: formData,
@@ -52,17 +54,19 @@ export default function Drag() {
         setUploadProgress(progress);
       },
     })
-      .then((response) => {
+      .then(async (response) => {
         if (response.ok) {
-          console.log("Upload successful");
-          return response.json();
+          let output = await response.json();
+          Subject_ShowModal$.next(false);
+          Subject_ImageUploaded$.next(output.data);// sending the data for image parsing
+          return output;
         } else {
           console.error("Upload failed");
           throw new Error("Upload failed");
         }
       })
       .then((data) => {
-        console.log("Response:", data);
+        
       })
       .catch((error) => {
         console.error("Error occurred while uploading:", error);
@@ -94,7 +98,6 @@ export default function Drag() {
     })
       .then((response) => {
         if (response.ok) {
-          console.log("Image processing successful");
           return response.json();
         } else {
           console.error("Image processing failed");
@@ -102,11 +105,10 @@ export default function Drag() {
         }
       })
       .then((result) => {
-        console.log("Processing result:", result);
+        
 
         const outputImageUrl = result.data.output.output_images[0];
         setOutputImageUrl(outputImageUrl);
-        console.log("Output image URL:", outputImageUrl);
 
         setUploadProgress(null);
       })
