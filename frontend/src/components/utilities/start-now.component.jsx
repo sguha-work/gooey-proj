@@ -1,5 +1,5 @@
 import React from "react";
-import image2 from "../components/images/image2.png";
+import image2 from "../images/image2.png";
 import { Button } from "bootstrap";
 
 export default function StartNow() {

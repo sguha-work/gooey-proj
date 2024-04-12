@@ -1,9 +1,9 @@
 import React from "react";
 import ReactCompareImage from "react-compare-image";
-import image1 from "../components/images/image1.png";
-import image2 from "../components/images/image2.png";
-import pani from "../components/images/pani.jpg";
-import fish from "../components/images/fish.jpg";
+import image1 from "../images/image1.png";
+import image2 from "../images/image2.png";
+import pani from "../images/pani.jpg";
+import fish from "../images/fish.jpg";
 
 const Upscale = () => {
   return (

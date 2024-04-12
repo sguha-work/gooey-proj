@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import F1 from "../components/images/F1.png";
-import F2 from "../components/images/F2.png";
+import F1 from "../images/F1.png";
+import F2 from "../images/F2.png";
 
 export default function Feature() {
   return (

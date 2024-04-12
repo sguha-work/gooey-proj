@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Frame from "../components/images/Frame.svg";
-import { SERVER_URL } from "../constants/common.constant";
+import Frame from "../images/Frame.svg";
+import { SERVER_URL } from "../../constants/common.constant";
 export default function Drag() {
   const [dragging, setDragging] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);

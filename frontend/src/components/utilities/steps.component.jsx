@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import image2 from "../components/images/image2.png";
-import Frame from "../components/images/Frame.svg";
+import image2 from "../images/image2.png";
+import Frame from "../images/Frame.svg";
 
 export default function Steps() {
   return (

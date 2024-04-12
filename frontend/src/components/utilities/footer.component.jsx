@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import logo from "../components/images/logo.png";
+import logo from "../images/logo.png";
 
 import {
   faFacebook,

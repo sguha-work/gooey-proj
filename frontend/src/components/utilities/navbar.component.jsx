@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import logo1 from "../components/images/logo1.png";
+import logo1 from "../images/logo1.png";
 import { FaSearch } from "react-icons/fa";
 
 export default function Navbar() {
