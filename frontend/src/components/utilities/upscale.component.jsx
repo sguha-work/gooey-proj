@@ -8,7 +8,7 @@ import Modal from "./modal.component";
 import { Subject_ShowModal$ } from "../../subjects/modal.behavior-subject";
 const Upscale = () => {
   const dummyImage1 = "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/f68feb16-5925-11ed-83cc-02420a0000c8/Image3.jpg";
-  const dummyImage2 = "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/ef678192-f8ba-11ee-8361-02420a00015b/gooey.ai%20-%20in%20the%20style%20of%20a%20retro%201947%20newspaper%20poster%20retro..png";
+  const dummyImage2 = "https://storage.googleapis.com/dara-c1b52.appspot.com/daras_ai/media/fda030fa-f8fc-11ee-9505-02420a00015d/gooey.ai%20-%20colorful%20background%20studio%20ghibli%20ponyo%20anime%20excited%20anime%20saturated%20colors%20color..png";
   const [leftAndRightImageURL, setLeftAndRightImageURL] = useState({
     image1: dummyImage1,
     image2: dummyImage2
@@ -36,7 +36,7 @@ const Upscale = () => {
             "manualEnhancement":
               [
                 {
-                  "type": "retro"
+                  "type": "color"
                 }
               ]
           }
