@@ -61,7 +61,7 @@ export default function ResultCard() {
               </button>
               <p className="text-sm mb-2">Preview image 612*915</p>
             
-              <button
+              {/* <button
   onClick={handleDownload}
   className="border border-pink-500 text-pink-500 hover:text-white hover:bg-pink-500 hover:border-pink-500 font-bold py-2 px-4 rounded flex items-center"
 >
@@ -78,20 +78,21 @@ export default function ResultCard() {
   >
     <path d="M19 9l-7 7-7-7" />
   </svg>
-</button>
+</button> */}
 
 
               <p className="text-sm">Full image 612*915</p>
-              <div className="relative">
-  <input
-    type="text"
-    placeholder="Your Prompt..."
-    className="border border-pink-500 text-pink-500 font-bold py-2 px-4 rounded pr-10"
-  />
-  <button className="bg-pink-500 text-white font-bold py-2 px-4 rounded absolute right-0 top-0 bottom-0 flex items-center">
+              <div className="relative flex flex-col items-center">
+  <textarea
+    placeholder="Write Your Prompt..."
+    className="border border-pink-500 text-pink-500 font-bold py-2 px-4 rounded resize-none h-24 w-full max-w-md"
+  ></textarea>
+  <br />
+  <button className="bg-pink-500 text-white font-bold py-2 px-4 rounded text-center">
     Submit
   </button>
 </div>
+
 
             </div>
           </div>
