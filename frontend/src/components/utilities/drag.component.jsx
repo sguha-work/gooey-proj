@@ -32,11 +32,15 @@ export default function Drag() {
   };
 
   const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
+    const file = e.target.files[0]; console.log({ file });
+    if (file.name.toLowerCase().indexOf("png") != -1 || file.name.toLowerCase().indexOf("jpg") != -1 || file.name.toLowerCase().indexOf("jpeg") != -1) {
+      setSelectedFile(file);
 
-    // Immediately upload the file
-    uploadFile(file);
+      // Immediately upload the file
+      uploadFile(file);
+    } else {
+      alert("invalid image")
+    }
   };
 
   const uploadFile = (file) => {
@@ -66,10 +70,11 @@ export default function Drag() {
         }
       })
       .then((data) => {
-        
+
       })
       .catch((error) => {
         console.error("Error occurred while uploading:", error);
+        Subject_ShowModal$.next(false);
       });
   };
 
@@ -105,7 +110,7 @@ export default function Drag() {
         }
       })
       .then((result) => {
-        
+
 
         const outputImageUrl = result.data.output.output_images[0];
         setOutputImageUrl(outputImageUrl);
@@ -165,7 +170,7 @@ export default function Drag() {
               onDragLeave={handleDragLeave}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
-              // style={dragAreaStyle}
+            // style={dragAreaStyle}
             >
               <div className="w-full p-10 rounded-xl border-4 border-gray-300 border-dashed text-center">
                 {!selectedFile && (
