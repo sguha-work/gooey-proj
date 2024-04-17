@@ -2,23 +2,23 @@ import { useState } from "react";
 import new1 from "../images/new1.avif";
 
 export default function ResultCard() {
-  const [resultImage, setResultImage] = useState(""); // State to store the URL of the result image
+  const [resultImage, setResultImage] = useState(""); 
 
-  // Function to handle download of the result image
+ 
   const handleDownload = () => {
-    // Check if the result image URL is available
+   
     if (resultImage) {
-      // Create an anchor element
+    
       const anchor = document.createElement("a");
-      // Set the href attribute to the result image URL
+      
       anchor.href = resultImage;
-      // Set the download attribute to specify the filename for the downloaded image
+    
       anchor.download = "result_image.jpg";
-      // Append the anchor element to the document body
+    
       document.body.appendChild(anchor);
-      // Programmatically click the anchor element to initiate the download
+      
       anchor.click();
-      // Remove the anchor element from the document body
+     
       document.body.removeChild(anchor);
     }
   };
@@ -34,7 +34,7 @@ export default function ResultCard() {
             </div>
             <div className="flex flex-col items-center ml-8">
               <label className="mb-2">Result</label>
-              {/* Use resultImage state to display the result image */}
+             
               <img src={resultImage || new1} alt="result" className="mb-2" />
             </div>
           </div>
