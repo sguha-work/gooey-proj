@@ -83,26 +83,16 @@ export default function ResultCard() {
 
               <p className="text-sm">Full image 612*915</p>
               <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="border border-pink-500 text-pink-500  font-bold py-2 px-4 rounded flex items-center"
-                />
-                <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                  <svg
-                    className="h-5 w-5 text-gray-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5 3a1 1 0 011-1h8a1 1 0 011 1v2a1 1 0 01-1 1H6a1 1 0 01-1-1V3zm10 5a1 1 0 00-1 1v6l-2.293-2.293a1 1 0 00-1.414 0L7 15l-1.293-1.293a1 1 0 00-1.414 0L3 15V8a1 1 0 00-1-1H1a1 1 0 00-1 1v9a1 1 0 001 1h14a1 1 0 001-1V9a1 1 0 00-1-1h-1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-              </div>
+  <input
+    type="text"
+    placeholder="Your Prompt..."
+    className="border border-pink-500 text-pink-500 font-bold py-2 px-4 rounded pr-10"
+  />
+  <button className="bg-pink-500 text-white font-bold py-2 px-4 rounded absolute right-0 top-0 bottom-0 flex items-center">
+    Submit
+  </button>
+</div>
+
             </div>
           </div>
         </div>
