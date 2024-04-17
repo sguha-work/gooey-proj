@@ -6,12 +6,14 @@ import Feature from "../utilities/feature.component";
 import StartNow from "../utilities/start-now.component";
 import Review from "../utilities/review.component";
 import Footer from "../utilities/footer.component";
+import ResultCard from "../utilities/ResultCard.component";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <Drag />
+      <ResultCard/>
       <Upscale />
       <Steps />
       <Feature />
