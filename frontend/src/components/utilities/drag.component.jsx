@@ -144,25 +144,6 @@ export default function Drag() {
   };
 
   return (
-<<<<<<< HEAD
-    <section className="sm:py-20 py-10 relative">
-      <div className="absolute top-0 left-0 right-0">
-        <div className="w-screen overflow-hidden">
-          <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-0 left-[4vw]"></div>
-          <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-[20vw] right-2/4"></div>
-          <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-[-10vw] right-1/4"></div>
-          <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-0 right-0"></div>
-        </div>
-      </div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-[1070px] mx-auto text-center">
-          <div className="max-w-[730px] mx-auto text-center">
-            <h3 className="lg:text-[45px] text-3xl leading-tight font-semibold">
-              AI Photo Enhancer:
-              <br />
-              Upscale your photo quality for free
-            </h3>
-=======
     <>
       <section className="py-20 relative">
         <div className="absolute top-0 left-0 right-0">
@@ -171,7 +152,6 @@ export default function Drag() {
             <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-[20vw] right-2/4"></div>
             <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-[-10vw] right-1/4"></div>
             <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-0 right-0"></div>
->>>>>>> 0d67d0838a08ef444fc611c0e35fc230d3f5a6e9
           </div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
@@ -191,25 +171,6 @@ export default function Drag() {
             </p>
           </div>
 
-<<<<<<< HEAD
-        <div className="max-w-[1192px] mx-auto mt-10">
-          <div className="flex items-center justify-center w-full">
-            <label
-              htmlFor="dropzone-file"
-              className="flex flex-col items-center justify-center sm:p-10 p-5 w-full rounded-lg cursor-pointer bg-white shadow-[0px_100px_60px_-70px_rgba(19,15,48,0.1)]"
-              onDragEnter={handleDragEnter}
-              onDragLeave={handleDragLeave}
-              onDragOver={handleDragOver}
-              onDrop={handleDrop}
-            // style={dragAreaStyle}
-            >
-              <div className="w-full p-10 rounded-xl border-4 border-gray-300 border-dashed text-center">
-                {!selectedFile && (
-                  <div className="mb-5 max-w-48 mx-auto flex justify-center items-center">
-                    <img src={Frame} alt="Frame" className="max-w-full" />
-                  </div>
-                )}
-=======
           <div className="max-w-[1192px] mx-auto mt-10">
             <div className="flex items-center justify-center w-full">
               <label
@@ -227,7 +188,6 @@ export default function Drag() {
                       <img src={Frame} alt="Frame" className="max-w-full" />
                     </div>
                   )}
->>>>>>> 0d67d0838a08ef444fc611c0e35fc230d3f5a6e9
 
                   <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
                     <span className="font-semibold">
