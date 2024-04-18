@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 import Frame from "../images/Frame.svg";
+import Line from "../images/lines.svg";
+import Cross from "../images/cross.svg";
+import Tangle from "../images/tangle.svg";
+import Dots from "../images/dots.svg";
 import { SERVER_URL } from "../../constants/common.constant";
 import { Subject_ImageUploaded$ } from "../../subjects/image.behavior-subject";
 import { Subject_ShowModal$ } from "../../subjects/modal.behavior-subject";
@@ -146,14 +150,20 @@ export default function Drag() {
   return (
     <>
       <section className="py-20 relative">
-        <div className="absolute top-0 left-0 right-0">
-          <div className="w-screen overflow-hidden">
-            <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-0 left-[4vw]"></div>
-            <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-[20vw] right-2/4"></div>
-            <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-[-10vw] right-1/4"></div>
-            <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-0 right-0"></div>
-          </div>
+      <div class="absolute top-0 left-0 right-0">
+        <div class="w-screen overflow-hidden">
+          <div class="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-900 blur-[10rem] absolute top-[20vh] left-[4vw]"></div>
+          <div class="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-[20vw] right-2/4"></div>
+          <div class="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-red-400 blur-[10rem] absolute top-[5vh] right-[10vw]"></div>
+
+          <div class="absolute top-[26vh] right-[10vw] z-[1] opacity-25"><img src={Cross} alt="Cross" className="max-w-full" /></div>
+          <div class="absolute top-[7vh] right-[16vw] z-[1] opacity-25"><img src={Line} alt="Line" className="max-w-full" /></div>
+          <div class="w-3 h-3 rounded-full bg-red-300 absolute top-[31vh] right-[28vw] z-[1]"></div>
+          <div class="w-3 h-3 rounded-full bg-red-200 absolute top-[10vh] left-[25vw] z-[1]"></div>
+          <div class="absolute top-[22vh] left-[12vw] z-[1] opacity-25 animate-bounce"><img src={Tangle} alt="Tangle" className="max-w-full" /></div>
+
         </div>
+      </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-[1070px] mx-auto text-center">
             <div className="max-w-[730px] mx-auto text-center">
@@ -172,17 +182,18 @@ export default function Drag() {
           </div>
 
           <div className="max-w-[1192px] mx-auto mt-10">
-            <div className="flex items-center justify-center w-full">
+            <div class="flex items-center justify-center w-full relative">
+              <img src={Dots} alt="Dots" className="absolute -top-5 -left-10 opacity-30" />
               <label
                 htmlFor="dropzone-file"
-                className="flex flex-col items-center justify-center p-10 w-full rounded-lg cursor-pointer bg-white shadow-[0px_100px_60px_-70px_rgba(19,15,48,0.1)]"
+                className="flex flex-col items-center justify-center md:p-10 p-5 w-full rounded-3xl cursor-pointer bg-white shadow-[0px_100px_60px_-70px_rgba(19,15,48,0.1)] relative z-[1]"
                 onDragEnter={handleDragEnter}
                 onDragLeave={handleDragLeave}
                 onDragOver={handleDragOver}
                 onDrop={handleDrop}
                 // style={dragAreaStyle}
               >
-                <div className="w-full p-10 rounded-xl border-4 border-gray-300 border-dashed text-center">
+                <div className="w-full p-20 rounded-xl border-4 border-gray-300 border-dashed text-center">
                   {!selectedFile && (
                     <div className="mb-5 max-w-48 mx-auto flex justify-center items-center">
                       <img src={Frame} alt="Frame" className="max-w-full" />
