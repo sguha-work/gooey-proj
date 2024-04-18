@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Navbar />
       <Drag />
-      <ResultCard></ResultCard>
+      {/* <ResultCard /> */}
       <Upscale />
       <Steps />
       <Feature />
