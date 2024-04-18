@@ -9,8 +9,8 @@ export default function Steps() {
           <div className="max-w-[640px] mx-auto text-center">
             <h3 className="lg:mb-20 mb-10 lg:text-[45px] text-3xl leading-tight font-bold">How to enhance image quality</h3>            
           </div>
-          <div className="flex flex-wrap -mx-10 gap-y-10">
-            <div className="lg:w-3/12 sm:w-6/12 w-full px-10">
+          <div className="flex flex-wrap -mx-5 gap-y-10">
+            <div className="lg:w-3/12 sm:w-6/12 w-full px-5">
               <div className="text-center">
                 <h4 className="mb-5 text-lg font-bold leading-normal">Step 01</h4>
                 <figure>
@@ -24,7 +24,7 @@ export default function Steps() {
                 </figure>
               </div>
             </div>
-            <div className="lg:w-3/12 sm:w-6/12 w-full px-10">
+            <div className="lg:w-3/12 sm:w-6/12 w-full px-5">
               <div className="text-center">
                 <h4 className="mb-5 text-lg font-bold leading-normal">Step 02</h4>
                 <figure>
@@ -39,7 +39,7 @@ export default function Steps() {
               </div>
             </div>
 
-            <div className="lg:w-3/12 sm:w-6/12 w-full px-10">
+            <div className="lg:w-3/12 sm:w-6/12 w-full px-5">
               <div className="text-center">
                 <h4 className="mb-5 text-lg font-bold leading-normal">Step 03</h4>
                 <figure>

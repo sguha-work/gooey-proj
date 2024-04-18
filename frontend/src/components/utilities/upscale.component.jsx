@@ -68,13 +68,13 @@ const Upscale = () => {
   return (
     <>
       <Modal show={true}></Modal>
-      <section className="pt-10 pb-20">
+      <section className="sm:pt-10 pb-20">
         <div className="container mx-auto px-5">
-          <div className="flex flex-wrap items-center -mx-5 gap-y-8">
-            <div className="md:w-5/12 w-full px-5">
+          <div className="flex flex-wrap items-center md:-mx-4 gap-y-8">
+            <div className="lg:w-5/12 md:w-6/12 w-full md:px-4">
               <h3 className="mb-5 lg:text-[45px] text-3xl leading-tight font-bold max-w-[658px]">
                 Upscale pictures
-                <br />
+                
                 without losing quality up to 16x
               </h3>
               <p className="text-lg text-gray-700 max-w-[480px]">
@@ -82,8 +82,16 @@ const Upscale = () => {
                 sharpen photos for printing and web in a single click.
               </p>
             </div>
-            <div className="md:w-6/12 w-full px-5 ms-auto">
+            <div className="lg:w-6/12 md:w-6/12 w-full md:px-4 lg:ms-auto relative">
               <div className="rounded-2xl border-4 border-solid border-white shadow-[0px_100px_60px_-70px_rgba(19,15,48,0.25)] overflow-hidden">
+                <div className="p-2 flex -mx-2 absolute z-[1] top:0 left-4 right-4">
+                    <div className="px-2 w-6/12 text-center">
+                        <label className="block mb-2 text-xl font-medium">Original</label>
+                    </div>
+                    <div className="px-2 w-6/12 text-center">
+                        <label className="block mb-2 text-xl font-medium">Result</label>
+                    </div>
+                </div>
                 <ReactCompareImage leftImage={leftAndRightImageURL.image1} rightImage={leftAndRightImageURL.image2} />
               </div>
             </div>

@@ -135,7 +135,7 @@ export default function Drag() {
   };
 
   return (
-    <section className="py-20 relative">
+    <section className="sm:py-20 py-10 relative">
       <div className="absolute top-0 left-0 right-0">
         <div className="w-screen overflow-hidden">
           <div className="w-[25vw] h-[25vw] rounded-full lg:opacity-40 bg-gray-500 blur-[10rem] absolute top-0 left-[4vw]"></div>
@@ -165,7 +165,7 @@ export default function Drag() {
           <div className="flex items-center justify-center w-full">
             <label
               htmlFor="dropzone-file"
-              className="flex flex-col items-center justify-center p-10 w-full rounded-lg cursor-pointer bg-white shadow-[0px_100px_60px_-70px_rgba(19,15,48,0.1)]"
+              className="flex flex-col items-center justify-center sm:p-10 p-5 w-full rounded-lg cursor-pointer bg-white shadow-[0px_100px_60px_-70px_rgba(19,15,48,0.1)]"
               onDragEnter={handleDragEnter}
               onDragLeave={handleDragLeave}
               onDragOver={handleDragOver}

@@ -15,10 +15,10 @@ export default function Footer() {
       <footer className="text-neutral-300 bg-[#333333]">
         <div className="footer-top pt-20">
           <div className="max-w-[1640px] mx-auto px-5">
-            <div className="flex flex-wrap justify-between -mx-8">
+            <div className="flex flex-wrap justify-between -mx-5">
               {/* Upper Footer Section */}
-              <div className="lg:w-4/12 w-full mb-8 px-8">
-                  <div className="image mb-5">
+              <div className="lg:w-4/12 w-full mb-8 px-5">
+                  <div className="mb-5">
                     <img src={logo} alt="logo" />
                   </div>
 
@@ -26,7 +26,7 @@ export default function Footer() {
               </div>
 
               {/* Shop Now Section */}
-              <div className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-6/12 mb-8 px-8">
+              <div className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-6/12 mb-8 px-5">
                 <div className="block">
                   <h4 className="mb-5 text-xl font-semibold leading-8">Product</h4>
                   <ul>
@@ -39,7 +39,7 @@ export default function Footer() {
               </div>
 
               {/* Store Hours Section */}
-              <div className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-6/12 mb-8 px-8">
+              <div className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-6/12 mb-8 px-5">
                 <div className="block time">
                   <h4 className="mb-5 text-xl font-semibold leading-8">Company</h4>
                   <ul>
@@ -51,7 +51,7 @@ export default function Footer() {
               </div>
 
               {/* Contact Us Section */}
-              <div className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-6/12 mb-8 px-8">
+              <div className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-6/12 mb-8 px-5">
                 <div className="block address">
                   <h4 className="mb-5 text-xl font-semibold leading-8">Legal</h4>
                   <ul>
@@ -64,7 +64,7 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-6/12 mb-8 px-8">
+              <div className="lg:w-2/12 md:w-3/12 sm:w-6/12 w-6/12 mb-8 px-5">
                 <div className="block address">
                   <h4 className="mb-5 text-xl font-semibold leading-8">Community</h4>
                   <ul>
