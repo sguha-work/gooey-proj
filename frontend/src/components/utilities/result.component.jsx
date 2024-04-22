@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./result-card.component.css";
 import direction from "../images/direction.png";
 import { SERVER_URL } from "../../constants/common.constant";
@@ -11,6 +11,9 @@ export default function Result({ originalImage }) {
   const [resultImage, setResultImage] = useState(null);
   const [promptText, setPromptText] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const downloadRef = useRef(null);
 
   const handleSubmit = async () => {
     setIsLoading(true);
@@ -38,8 +41,7 @@ export default function Result({ originalImage }) {
       return;
     }
 
-    // TODO: check if data.data is a valid key
-    setResultImage(data.data.image);
+    setResultImage(data.data?.output?.output_images?.[0]);
   };
 
   return (
@@ -81,23 +83,37 @@ export default function Result({ originalImage }) {
               </div>
               <div className="lg:w-3/12 sm:w-4/12 w-full flex items-center px-2">
                 <div className="w-full text-center">
+                  <a
+                    ref={downloadRef}
+                    style={{ display: "none" }}
+                    href="/"
+                    target="_blank"
+                    download
+                  ></a>
                   <Button
                     type="button"
                     disabled={!resultImage}
+                    loading={isDownloading}
+                    onClick={async () => {
+                      setIsDownloading(true);
+                      const response = await fetch(resultImage);
+                      const blob = await response.blob();
+                      const downloadUrl = window.URL.createObjectURL(blob);
+                      downloadRef.current.href = downloadUrl;
+                      downloadRef.current.download =
+                        "result." + resultImage.split(".").pop();
+                      downloadRef.current.click();
+                      setIsDownloading(false);
+                    }}
                     className="w-full mb-2 bg-pink-600 hover:opacity-80"
                   >
                     Free Download
                     <TbChevronDown className="ml-2" size={20} />
                   </Button>
-                  <p className="mb-1 text-sm font-medium text-slate-500">
-                    Preview image 612*915
-                  </p>
-                  <p className="mb-2 text-sm font-medium text-slate-500">
-                    Full image 612*915
-                  </p>
+
                   <div className="relative flex flex-col items-center gap-y-4">
                     <textarea
-                      placeholder="A beautiful anime drawing of a smiling character full of joy, with colorful background, studio ghibli, ponyo, anime, excited, anime, saturated colors"
+                      placeholder="Welcome to Atlaschat please write your prompt here."
                       value={promptText}
                       onChange={(e) => setPromptText(e.target.value)}
                       className="w-full lg:h-36 sm:h-32 h-24 py-2 px-4 text-base text-gray-700 border border-slate-200 rounded resize-none"
