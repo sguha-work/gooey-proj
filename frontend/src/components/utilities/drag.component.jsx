@@ -161,6 +161,7 @@ export default function Drag() {
           <div class="w-3 h-3 rounded-full bg-red-300 absolute top-[31vh] right-[28vw] z-[1]"></div>
           <div class="w-3 h-3 rounded-full bg-red-200 absolute top-[10vh] left-[25vw] z-[1]"></div>
           <div class="absolute top-[22vh] left-[12vw] z-[1] opacity-25 animate-bounce"><img src={Tangle} alt="Tangle" className="max-w-full" /></div>
+
         </div>
       </div>
         <div className="container mx-auto px-4 relative z-10">

@@ -1,25 +1,25 @@
-import Navbar from "../utilities/navbar.component";
-import Drag from "../utilities/drag.component";
-import Upscale from "../utilities/upscale.component";
-import Steps from "../utilities/steps.component";
-import Feature from "../utilities/feature.component";
-import StartNow from "../utilities/start-now.component";
-import Review from "../utilities/review.component";
-import Footer from "../utilities/footer.component";
-import ResultCard from "../utilities/result-card.component";
+import { createRef, useEffect, useState } from "react";
+import Upload from "../utilities/upload.component";
+import Result from "../utilities/result.component";
 
 export default function Home() {
+  const [uploadedFile, setUploadedFile] = useState(null);
+  const resultRef = createRef();
+
+  useEffect(() => {
+    if (uploadedFile) {
+      resultRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [uploadedFile, resultRef]);
+
   return (
     <>
-      <Navbar />
-      <Drag />
-      {/* <ResultCard /> */}
-      <Upscale />
-      <Steps />
-      <Feature />
-      {/* <StartNow /> */}
-      {/* <Review /> */}
-      <Footer />
+      <Upload onUploadSuccess={setUploadedFile} />
+      {uploadedFile && (
+        <div ref={resultRef}>
+          <Result originalImage={uploadedFile} />
+        </div>
+      )}
     </>
   );
 }
