@@ -33,33 +33,39 @@ export default function Result({ originalImage }) {
 
     const imageUploadData = await imageUploadResponse.json();
     const imageUrl = imageUploadData?.data?.mediaSource;
+    let generateImageResponse;
+    try {
+      generateImageResponse = await fetch(`${SERVER_URL}/image`, {
+        method: "POST",
+        headers: {
+          'Accept': 'application/json',
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          input_image: imageUrl,
+          text_prompt: promptText,
+        }),
+      });
+      setIsLoading(false);
+      if (!generateImageResponse.ok) {
+        toast("Failed to generate image, please try again.");
+        return;
+      }
+      const generateImageData = await generateImageResponse.json();
 
-    const generateImageResponse = await fetch(`${SERVER_URL}/image`, {
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        input_image: imageUrl,
-        text_prompt: promptText,
-      }),
-    });
-    setIsLoading(false);
+      if (generateImageData?.data?.detail?.error) {
+        toast.error(generateImageData.data.detail.error);
+        return;
+      }
 
-    if (!generateImageResponse.ok) {
+      setResultImage(generateImageData.data?.output?.output_images?.[0]);
+    } catch (e) {
+      setIsLoading(false);
       toast("Failed to generate image, please try again.");
-      return;
     }
 
-    const generateImageData = await generateImageResponse.json();
 
-    if (generateImageData?.data?.detail?.error) {
-      toast.error(generateImageData.data.detail.error);
-      return;
-    }
 
-    setResultImage(generateImageData.data?.output?.output_images?.[0]);
   };
 
   return (
