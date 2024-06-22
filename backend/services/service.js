@@ -19,7 +19,7 @@ class Service {
             const stream = await fetch(process.env.GOOEY_API_PATH, {
                 method: "POST",
                 headers: {
-                    "Authorization": "Bearer " + process.env["GOOEY_SECREAT_KEY"],
+                    "Authorization": "Bearer " + `sk-3gUkfsA2ohLGS8jgTj3qGO8ie0jP0Lj0fYBXXaR4tHeUVdW0`,
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(payload),
