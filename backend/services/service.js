@@ -10,13 +10,13 @@ class Service {
         }
         Service.instance = this;
     }
-    async image(payload) {
+    async image(payload) {console.log("hello")
         if(payload.manualEnhancement) {console.log(Service.instance);
             payload = Service.instance.#imageProcessService.processManualEnhancement(payload);
         }
         try {
             console.log('payload', payload);
-            const stream = await fetch(process.env.GOOEY_API_PATH, {
+            const stream = await fetch("https://api.gooey.ai/v2/Img2Img/", {
                 method: "POST",
                 headers: {
                     "Authorization": "Bearer " + `sk-3gUkfsA2ohLGS8jgTj3qGO8ie0jP0Lj0fYBXXaR4tHeUVdW0`,
