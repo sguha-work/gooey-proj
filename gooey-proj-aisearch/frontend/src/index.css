@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Add this to your CSS file */
+
+.response-page h3 {
+    font-size: 1.2rem; /* Adjust size as needed */
+    font-weight: bold; /* Ensure it's bold */
+    color: #333; /* Change color to match your theme */
+    margin-bottom: 1rem;
+}
+
+.response-page p {
+    font-size: 1rem; /* Regular paragraph text size */
+    color: #444; /* Adjust color for readability */
+    margin-bottom: 1rem;
+}
+.response-page li {
+    font-size: 1rem; /* Regular paragraph text size */
+    color: #444; /* Adjust color for readability */
+    margin-bottom: 0.5rem;
+}
+
+.response-page strong {
+    font-weight: bold; /* Ensure bold text is styled */
+    margin-bottom: 1rem;
+}
+.response-page span {
+    color: #444; /* Adjust color for readability */
+    font-size: 1rem; /* Ensure the font size matches the paragraph */
+    margin-bottom: 1rem;
+}
+.response a{
+    color: #315be8;
+    text-decoration: underline;
+}
+.response a:hover{
+    color: #a9a18c;  
+    text-decoration: none;
+}
+.backbutton {
+    display: inline-block;
+    color: white !important;
+    background-color: black;
+    text-decoration: none;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5%;
+    padding: 5px 10px !important;
+    float:right;
+}
+
+.backbutton:hover {
+    background-color: transparent;
+    color: black !important;
+    text-decoration: underline;
+}

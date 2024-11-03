@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "search_query": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "company_url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "search_query",
+    "keywords",
+    "title",
+    "company_url"
+  ]
+}
